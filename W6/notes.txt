@@ -1,0 +1,22 @@
+Experiments
+	+ Convergence studies
+	+ Ground truth - set the system in equilibrium
+	+ Fill pattern, eigenvalues
+
+Theory
+	+ Gauss divergence theorem
+
+Boundary is piece-wise continous
+	- Each piece is continous
+
+Leibniz rule for differentiation
+
+Normal at an edge is the same
+
+Integral of g(u)
+	This is just equivalent to evaluating g(u) * Ve
+	We store u at the nodal positions and multiply by the volume
+	of the current element.
+
+Only when we apply FDM and numerical integration we introduce approximation
+errors 

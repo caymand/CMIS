@@ -1,0 +1,27 @@
+dts = np.linspace(0.0001, 0.01, 10, dtype=float)
+print(dts)
+dists = []
+for dt in tqdm(dts):
+    dists.append(distance(dt=dt))
+dists
+
+def distance(m=12, n=4, dt=0.001):
+    V, T = make_beam_mesh(6.0,2.0,(m, n))
+    solver = PhysicsSolver()
+    world0 = PhysicsWorld(V, T, nu, _E, rho, g=2)
+    world = copy.deepcopy(world0)
+    n = 100
+    for t in np.linspace(0.0, 100*dt, 100):
+        F = list(solver.compute_F(world))
+        E = list(solver.compute_E(F))
+        S = list(solver.compute_S(E, world))
+        P = list(solver.compute_P(F, S))
+        forces = np.zeros((V.shape[0], 2))
+        forces += solver.compute_external_forces(world)
+        forces += solver.compute_elastic_force(P, world)
+        forces += solver.compute_traction_force(world, vec2(0,-500), t, 1000*dt)
+        forces = solver.compute_normal_force(world, forces)
+        
+        world.v0 += dt*forces/world.m
+        world.V += dt*world.v0
+    return np.mean(np.linalg.norm((world.V - world0.V)))

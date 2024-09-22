@@ -1,0 +1,7 @@
+Blow up
+	- Boundary condition
+	- Numerical issues
+	- The model
+Linear model
+	But we see non-linear deformations
+	Might explain why we see blow up

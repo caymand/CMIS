@@ -1,0 +1,11 @@
+Sampling on regular grid
++ Same distance within each vertex
++ Sampling precision is given by dx
+
+Forward difference approximation
+Central difference approximation
+
+Laplacian operator
++ fxx + fyy + fzz
++ If we take it on the vector u=[x,y, z]
+  then this is just taking fxx, fyy, fzz on each coordinate

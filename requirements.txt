@@ -1,0 +1,6 @@
+numpy
+meshplot
+ipympl
+igl
+wildmeshing
+jupyter

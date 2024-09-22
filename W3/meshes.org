@@ -1,0 +1,4 @@
+Tetrahedral mesh
+
+Zero crossing of union of signed distance field can be used to give contours of
+the shape we wish to model.
